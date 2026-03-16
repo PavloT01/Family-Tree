@@ -15,7 +15,7 @@ une table d'individus avec deux indexations :
 
 ## Fonctionnalités implémentées
 
-### 1. Construction de l'arbre (7pts)
+### 1. Construction de l'arbre 
 - Initialisation et libération de la généalogie (`genealogieInit`, `genealogieFree`)
 - Création et suppression d'individus (`nouvIndividu`, `freeIndividu`)
 - Accès par identifiant en complexité constante (`getByIdent`)
@@ -25,18 +25,18 @@ une table d'individus avec deux indexations :
 - Gestion automatique de la liste des enfants triée du plus âgé
   au plus jeune
 
-### 2. Affichage (5pts)
+### 2. Affichage 
 - Récupération de tous les frères et sœurs (`affiche_freres_soeurs`)
 - Récupération de tous les enfants (`affiche_enfants`)
 - Récupération de tous les cousins/cousines (`affiche_cousins`)
 - Récupération de tous les oncles/tantes (`affiche_oncles`)
 
-### 3. Liens de parenté (2pts)
+### 3. Liens de parenté 
 - Fusion de fratries (`deviennent_freres_soeurs`)
 - Ajout d'un père après coup (`devient_pere`)
 - Ajout d'une mère après coup (`devient_mere`)
 
-### 4. Parcours de l'arbre (6pts)
+### 4. Parcours de l'arbre 
 - Test d'ancêtre (`estAncetre`)
 - Test d'ancêtre commun entre deux individus (`ontAncetreCommun`)
 - Recherche de l'ancêtre le plus ancien (`plus_ancien`)
