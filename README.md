@@ -1,91 +1,54 @@
-# Arbre Généalogique 🌳
+# Family Tree
 
-Ce projet implémente une structure de données et des algorithmes
-pour la gestion d'un **arbre généalogique** en langage **C**,
-dans le cadre du cours *Structures de données et algorithmes II*
-à l'Université de Strasbourg (2024-25).
+This project implements a data structure and algorithms for managing a **family tree** in **C**, as part of the *Data Structures and Algorithms II* course at the University of Strasbourg (2024-25).
 
-## Description du projet
+## Project Description
 
-Le projet modélise une généalogie où chaque individu possède
-exactement deux parents (père et mère). La structure repose sur
-une table d'individus avec deux indexations :
-- par **identifiant** — accès direct en O(1)
-- par **nom** — recherche dichotomique en O(log n)
+The project models a genealogy where each individual has exactly two parents (father and mother). The structure relies on a table of individuals with dual indexing:
+- by **identifier** — direct access in O(1)
+- by **name** — binary search in O(log n)
 
-## Fonctionnalités implémentées
+## Implemented Features
 
-### 1. Construction de l'arbre 
-- Initialisation et libération de la généalogie (`genealogieInit`, `genealogieFree`)
-- Création et suppression d'individus (`nouvIndividu`, `freeIndividu`)
-- Accès par identifiant en complexité constante (`getByIdent`)
-- Recherche par nom avec recherche dichotomique (`getByName`, `getPos`)
-- Ajout automatique d'un individu avec mise à jour des liens
-  de parenté (`adj`, `insert`, `adjFils`)
-- Gestion automatique de la liste des enfants triée du plus âgé
-  au plus jeune
+### 1. Tree Construction
+- Initialization and freeing of the genealogy (`genealogieInit`, `genealogieFree`)
+- Creation and deletion of individuals (`nouvIndividu`, `freeIndividu`)
+- Access by identifier with constant complexity (`getByIdent`)
+- Search by name using binary search (`getByName`, `getPos`)
+- Automatic addition of an individual with kinship link updates (`adj`, `insert`, `adjFils`)
+- Automatic management of the children's list, sorted from oldest to youngest
 
-### 2. Affichage 
-- Récupération de tous les frères et sœurs (`affiche_freres_soeurs`)
-- Récupération de tous les enfants (`affiche_enfants`)
-- Récupération de tous les cousins/cousines (`affiche_cousins`)
-- Récupération de tous les oncles/tantes (`affiche_oncles`)
+### 2. Display
+- Retrieval of all siblings (`affiche_freres_soeurs`)
+- Retrieval of all children (`affiche_enfants`)
+- Retrieval of all cousins (`affiche_cousins`)
+- Retrieval of all uncles/aunts (`affiche_oncles`)
 
-### 3. Liens de parenté 
-- Fusion de fratries (`deviennent_freres_soeurs`)
-- Ajout d'un père après coup (`devient_pere`)
-- Ajout d'une mère après coup (`devient_mere`)
+### 3. Kinship Links
+- Merging sibling groups (`deviennent_freres_soeurs`)
+- Adding a father after the fact (`devient_pere`)
+- Adding a mother after the fact (`devient_mere`)
 
-### 4. Parcours de l'arbre 
-- Test d'ancêtre (`estAncetre`)
-- Test d'ancêtre commun entre deux individus (`ontAncetreCommun`)
-- Recherche de l'ancêtre le plus ancien (`plus_ancien`)
-- Affichage de toute la parenté par génération (`affiche_parente`)
-- Affichage de toute la descendance par génération (`affiche_descendance`)
+### 4. Tree Traversal
+- Ancestor test (`estAncetre`)
+- Common ancestor test between two individuals (`ontAncetreCommun`)
+- Search for the oldest ancestor (`plus_ancien`)
+- Display of all ancestry by generation (`affiche_parente`)
+- Display of all descendants by generation (`affiche_descendance`)
 
-## Compétences acquises
+## Skills Acquired
 
-- Gestion dynamique de la mémoire en C (MALLOC, REALLOC, FREE)
-- Implémentation de structures de données complexes
-- Algorithmes de recherche dichotomique
-- Parcours récursif d'arbres généalogiques
-- Double indexation pour optimisation des accès
-- Tri et insertion ordonnée dans des tableaux dynamiques
-- Comparaison de dates et gestion des cas limites
-- Respect strict de contraintes de programmation C pur
-  (sans types C++, sans variables globales, sans printf
-  hors du main)
+- Dynamic memory management in C (`malloc`, `realloc`, `free`)
+- Implementation of complex data structures
+- Binary search algorithms
+- Recursive traversal of family trees
+- Dual indexing for access optimization
+- Sorting and ordered insertion in dynamic arrays
+- Date comparison and edge case management
+- Strict compliance with pure C programming constraints (no C++ types, no global variables, no `printf` outside of main)
 
-## Structure du code
+## Code Structure
 
-Le projet est contenu dans un unique fichier `genealogie.c`
-compilable avec `gcc` sur le serveur Turing sans erreur
-ni warning.
+The project is contained in a single `genealogie.c` file that can be compiled with `gcc` on the Turing server without errors or warnings.
 ```bash
 gcc -o genealogie genealogie.c
-```
-
-## Exemple d'utilisation
-
-L'arbre généalogique de la figure 1 (familles Potter et Weasley,
-inspiré de Harry Potter) est utilisé comme exemple de test tout
-au long du projet.
-```c
-Genealogie g;
-genealogieInit(&g);
-Ident ih = adj(g, "Harry", ijp, ilp, hn, dnull);
-affiche_parente(g, ih, buff);
-printf("%s\n", buff);
-```
-
-## Documentation complète
-
-Pour une description détaillée du sujet, les schémas de structures,
-les exemples complets et les figures illustratives, veuillez
-consulter le fichier PDF inclus dans ce dépôt :
-
-📄 [Voir le sujet complet (PDF)](docs/sujetDevoir_2025.pdf)
-
-## Auteur
-
-PavloT01 — Université de Strasbourg, 2024-25
